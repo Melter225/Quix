@@ -1,0 +1,99 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat';
+  background-image: url("images/QuixBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+/* Add this CSS to your style2.css file */
+
+a {
+  padding-right: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  background-color: #0e5979;
+  color: #fff;
+  backdrop-filter: blur(100000px);
+  border: none;
+  border-radius: 5px;
+  padding: 3px 10px; /* Increased padding for a more spacious look */
+  cursor: pointer;
+  font-weight: bold; /* Make the text bold for extra emphasis */
+  font-family: Montserrat;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+}
+
+button:hover {
+  background-color: #0d506c; /* Darken the button on hover for a dynamic effect */
+}
+
+button:focus {
+  outline: none; /* Remove the default focus outline for a cleaner look */
+}
+
+form {
+  padding: 6px;
+  border-radius: 5px;
+  border-radius: 10px; /* Optionally, round the corners for a softer look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); /* Add a subtle box shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add smooth transitions */
+  background: #ffffff13;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+body {
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+#name {
+  font-weight: bold;
+}
+
+#list {
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 20px;
+  background: #ffffff13;
+}
+
+#list div {
+  margin-bottom: 10px;
+}
+
+#usage-limit {
+  position: absolute;
+  top: 0px;
+  color: #fff;
+  right: 0px;
+  border-radius: 30px 0px 0px 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bolder;
+  border: none;
+  background-color: rgba(14, 89, 121, 0.316);
+  backdrop-filter: blur(100000px);
+}
