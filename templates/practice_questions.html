@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='/static/style3.css' />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/QuixLogo.png') }}" />
+    <title>Practice Questions</title>
+    <style>
+        body {
+          font-family: 'Montserrat';
+          background-color: #f2f2f2;
+        }
+
+      input[type=button] {
+        font-family: 'Montserrat', sans-serif;
+      }
+     </style>
+</head>
+<body>
+  <a href="/dashboard">
+    <img src="{{ url_for('static', filename='images/back_arrow.png') }}" alt="Back to Dashboard" style="max-width: 38px; max-height: 38px;">
+  </a>
+  <h1>Practice Questions for {{ test_name }}</h1>
+  <ul>
+    <form id="questionForm">
+      {% for question in questions.split('\n') %}
+        <li>{{ question }}</li>
+        <input type="text" class="input"></input>
+      {% endfor %}
+      <input type="button" value="Submit" onclick="submitForm()">
+    </form>
+  </ul>
+  <div id="usage-limit">
+    <p>Usage Limit: /$2.00</p>
+  </div>
+
+  <script>
+    let money = localStorage.getItem('solutionMoney') || 0.00
+    money = Number(money)
+    console.log(money, typeof(money))
+    const money_used = '$' + money.toFixed(2)
+    console.log(money_used)
+
+    const usage_text = `Usage Limit: ${money_used}/$2.00`;
+    console.log(usage_text)
+
+    // Access the paragraph element by its ID and set its text content
+    const usage_limit = document.getElementById('usage-limit');
+    usage_limit.textContent = usage_text;
+
+    function submitForm() {
+    let inputs = document.getElementsByClassName('input');
+    let answers = [];
+
+    // Retrieve user answers
+    for (let i = 0; i < inputs.length; i++) {
+      answers.push(`${i + 1}. ${inputs[i].value}`);
+    }
+
+    // Send an API request to get solutions from ChatGPT
+    fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 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' // Replace with your actual API key
+      },
+      body: JSON.stringify({
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant.'},
+          { role: 'user', content: `Determine with relevance and helpfulness whether these answers: ${JSON.stringify(answers.values)} are correct for these questions: "{{ questions }}", and list what you determine in a numbered list with either correct or incorrect. Ensure that you provide explanations for your answers once through a dash and then your explanation after the answer. Finally, do not provide additional messages that are not answers such as "Here are the answers". or a summary of what the user got right or wrong.`}
+        ]
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      let solutions = data.choices[0].message.content.trim();
+      console.log('Solutions from ChatGPT:', solutions);
+      console.log(`Determine with relevance and helpfulness whether these answers: ${JSON.stringify(answers)} are correct for these questions: "{{ questions }}", and list what you determine in a numbered list with either correct or incorrect. Ensure that you provide explanations for your answers once through a dash and then your explanation after the answer. Finally, do not provide additional messages that are not answers such as "Here are the answers". or a summary of what the user got right or wrong.`)
+
+      let solutionLength = solutions.split(/\s+\b/).length;
+      let solutionMoney = solutionLength * 0.0000026
+
+      if (localStorage.getItem('solutionMoney')) {
+        localStorage.setItem('solutionMoney', localStorage.getItem('solutionMoney') + solutionMoney)
+        console.log(localStorage.getItem('solutionMoney'))
+      }
+      else {
+        localStorage.setItem('solutionMoney', solutionMoney)
+        console.log(localStorage.getItem('solutionMoney'))
+      }
+
+      let solutionsList = solutions.split('\n').filter(Boolean); // This line filters out empty lines
+      let questionList = document.querySelectorAll('#questionForm li');
+
+      questionList.forEach((question, index) => {
+          let solution = document.createElement('p');
+          let solutionText = solutionsList[index].replace(/^\d+\.\s/, ''); // Remove the number and period at the beginning
+          solution.textContent = solutionText;
+
+          if (solution.textContent.includes('Correct')) {
+              solution.style.color = 'green';
+              solution.className = 'practice_solutions';
+              // solution.style.fontWeight = 'bold';
+          } else if (solution.textContent.includes('Incorrect')) {
+              solution.style.color = 'red';
+              solution.className = 'practice_solutions';
+              // solution.style.fontWeight = 'bold';
+          }
+
+          question.appendChild(solution);
+      });
+    });
+    }
+  </script>    
+</body>
+</html>

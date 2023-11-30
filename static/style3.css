@@ -1,0 +1,252 @@
+img {
+  position: fixed;
+  top: 0px; /* Adjust the distance from the top of the screen as needed */
+  left: 0px; /* Adjust the distance from the left of the screen as needed */
+  max-width: 30px;
+  max-height: 30px;
+}
+
+h1 {
+  position: relative;
+  left: 38px;
+  top: -4px;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 90%;
+  height: auto;
+}
+
+h1 {
+  font-size: 36px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input {
+  width: 96.5%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat';
+}
+
+input[type=button] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.submit_div {
+  display: grid;
+}
+
+input[type=button]:hover {
+  background-color: #0056b3;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+input[type=button] {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type=button]:hover {
+  background-color: #0056b3;
+  transition: background-color 0.3s ease;
+}
+
+/* Updated CSS for improved content layout */
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 800px; /* Adjusted max-width for better content layout */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff; /* Added background color to container */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Added a subtle box shadow for depth */
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+input[type=button] {
+  background-color: #0e5979;
+  backdrop-filter: blur(100000px);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 96.5%; /* Button width now spans the container */
+}
+
+input[type=button]:hover {
+  background-color: #0d506c;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  /* Other background properties */
+  background-image: url("images/QuixBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* ... */
+  color: white; 
+}
+
+h1 {
+  color: white;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background: #ffffff89;
+  border-color: #ffffff89;
+  backdrop-filter: blur(1000px);
+  margin-top: 30px;
+}
+
+#usage-limit {
+  position: absolute;
+  top: 0px;
+  color: #fff;
+  right: 0px;
+  border-radius: 30px 0px 0px 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bolder;
+  border: none;
+  background-color: rgba(14, 89, 121, 0.316);
+  backdrop-filter: blur(100000px);
+}
